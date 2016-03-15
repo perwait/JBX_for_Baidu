@@ -1,0 +1,90 @@
+*{
+    box-sizing: border-box;
+}
+:before,.:after{
+    box-sizing: border-box;
+}
+.clearfix:before,.clearfix:after,.container:before,.container:after{
+    display:table;
+    content: "";
+}
+.clearfix:after{
+    clear:both;
+}
+img{
+    vertical-align: top;
+}
+h1,h2,h3,h4,h5,p,body{
+    margin:0;
+}
+ul{
+    padding-left: 0;
+    margin:0;
+    list-style: none;
+}
+
+header{
+    font-family: "Microsoft YaHei",sans-serif;
+}
+header a{
+    display:inline-block;
+    text-decoration: none;
+}
+/*页面logo*/
+.logo{
+    font-family: "SimHei",sans-serif;
+    font-size: 21px;
+    line-height: 23px;
+    padding:18px 0 18px 43px;
+    color:#393a3a;
+    position: relative;
+    margin-left: 58px;
+    /*vertical-align: top;*/
+}
+.logo:before{
+    display:block;
+    width:32px;
+    height:33px;
+    background-image: url(../images/logo1_03.png);
+    content:"";
+    position: absolute;
+    left:0;
+    top:12px;
+}
+/*登录*/
+.login{
+    font-size: 14px;
+    line-height: 20px;
+    padding:16px 0 23px 20px;
+    color:#e74f4d;
+    position: relative;
+    float:right;
+    margin:0 67px 0 18px;
+}
+.login:before{
+    display:block;
+    width:13px;
+    height:18px;
+    background-image: url(../images/login_03.png);
+    content:"";
+    position: absolute;
+    top:16px;
+    left:0;
+}
+/*导航*/
+nav{
+    float:right;
+}
+nav li{
+    float:left;
+}
+nav a{
+    font-size: 14px;
+    line-height: 20px;
+    padding:16px 23px 20px ;
+    color:#787b83;
+}
+.active{
+    color:#e74f4d;
+    border-bottom: 3px solid;
+}
