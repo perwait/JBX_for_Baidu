@@ -1,0 +1,187 @@
+
+body{
+    font-family: "Microsoft YaHei",sans-serif;
+    background-color: #dedede;
+    margin:0;
+}
+.clearfix:before,.clearfix:after,section:before,section:after,.content:before,.content:after{
+    display:table;
+    content: "";
+}
+.clearfix:after{
+    clear: both;
+}
+img{
+    vertical-align: top;
+}
+header{
+    padding:0 20px;
+    background-color: #333333;
+}
+header img{
+    float:left;
+    height:60px;
+    width: auto;
+}
+nav ul{
+    padding: 0;
+    margin: 0;
+    float: right;
+}
+nav li{
+    float:left;
+    line-height: 20px;
+    padding:20px  0; 
+    margin-left: 30px;
+}
+nav a{
+    text-decoration: none;
+    color:#fff;
+}
+nav a:hover{
+    color:gray;
+}
+.content{
+    padding:0 465px 0 15px;
+    /*min-width: 440px;*/
+}
+section{
+    float:left;  
+}
+section img{
+    max-width: 100%;
+    height:auto;
+}
+article{
+    background-color: #fff;
+    padding:20px;
+    margin:20px 0;
+    box-shadow: 4px 4px 5px #888888;
+}
+article h1,aside h1{
+    font-size: 24px;
+    font-weight: bold;
+}
+article h2{
+    font-size: 20px;
+    color:gray;
+}
+article p{
+    font-size: 18px;
+    line-height: 1.5;
+    text-indent: 2em;
+}
+.atr-info{
+    color:gray;
+}
+/*第二篇文章列表*/
+article ul{
+    list-style: none;
+}
+/*图片*/
+.beauty-pic{
+    border:1px solid black;
+    display:inline-block;
+    padding:15px;
+    text-align: center;
+}
+.beauty-pic img{
+    width:100px;
+    height:80px;
+}
+figure{
+    margin:0 10px 10px 0;
+    float:left;
+}
+figcaption{
+    margin-bottom: 10px;
+}
+/*最后一篇文章列表*/
+article ol{
+    font-weight: bold;
+}
+/*表格*/
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width:100%;
+}
+th,td{
+    border:1px solid gray;
+    text-indent: 1em;
+}
+th{
+    background-color: #333333;
+    color:#fff;
+    text-align: left;
+}
+tbody tr:last-child{
+    background-color: gray;
+}
+aside{
+    width:400px;
+    margin:0 auto;
+    background-color: #fff;
+    padding:20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 5px #888888;
+    float:left;
+    margin-top: 20px;
+    margin-left: -100%;   
+    position: relative;
+    left:calc(100% + 10px);
+}
+
+
+/*表单*/
+.form-group,.radiobox,.checkbox {
+    margin-bottom: 10px;
+}
+.form-group label,.radiobox span,.checkbox span{
+    width:40%;
+    text-align: right;
+    display:inline-block;
+}
+input,textarea,select{
+    font-size: 16px;
+    margin-left: 5px;
+}
+textarea{
+    vertical-align: top;
+    width:50%;
+}
+.form-group p{
+    color:gray;
+    margin-left: calc(40% + 5px);
+    padding-left: 2px;
+   /* font-size: 16px;*/
+}
+button[type="sumbit"]{
+    width:100%;
+    height:40px;
+    color:#fff;
+    background-color: blue;
+    border-radius: 5px;
+    outline: none;
+}
+footer{
+    text-align: center;
+    background-color: black;
+    color:#fff;
+    padding:20px 0;
+
+}
+@media (max-width: 940px){
+    section,aside{
+        
+        float:none;
+    }
+    aside{
+        left:0;
+        margin: 0 auto 20px;
+    }
+    .content{
+        padding:0 15px;
+    }
+}
