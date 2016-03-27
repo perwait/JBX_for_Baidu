@@ -1,0 +1,6 @@
+{
+  "name": "jbxview",
+  "tagline": "午安，煎饼侠。",
+  "body": "# 午安，煎饼侠 - master\r\n<br>\r\n百度前端技术学院 - 非在校生组 - 煎饼侠\r\n<br>\r\n|- master (最终分支)<br> \r\n--|- cycle1 （周期任务）<br>\r\n------|-  task 1 （该周期任务——任务1）<br>\r\n------|-  task 2 <br>\r\n------|-  task ... <br>\r\n<br>\r\n|- zsz<br>\r\n|- hk<br>\r\n|- xsy<br>\r\n|- wyt<br>\r\n|- lw<br>\r\n（个人分支，目录结构与master相同）<br>\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
