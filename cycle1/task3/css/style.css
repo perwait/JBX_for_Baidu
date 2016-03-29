@@ -1,0 +1,41 @@
+body * { 
+	padding: 20px;
+	border: 1px solid #999999;
+}
+body {
+	font-size: 12px;
+}
+img {
+	width: 80px;
+	height: 80px;
+	vertical-align: top;
+	background: #dfdfdf;
+}
+div {
+	background: #ffffff;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.box  {
+	background: #dfdfdf;
+	overflow: auto;
+}
+.team {
+	width: 200px;
+}
+.people {
+	width: 120px;
+}
+.people  img {
+	margin-bottom: 20px;
+}
+.people  img:last-child {
+	margin-bottom: 0;
+}
+.text {
+	margin: 0 180px 0 260px;
+}
