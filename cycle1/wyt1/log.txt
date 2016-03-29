@@ -1,0 +1,16 @@
+﻿22:38 2016/3/17 初步完成任务一
+
+
+
+13:39 2016/3/18 了解了Git使用，成功推送任务一。任务二进度完成20%。
+
+
+
+21:28 2016/3/20 任务一总结：查看了组内成员以及百度前端技术学院其他团队提交的代码。得分较高基本就是HTML5标签用的相对较多的。同时组内小匣子和鹤先生的结构最为完整。这一个简单的页面，光是通过review，就认识了15种之前没有接触的标签或属性。同时查看中发现有的团队还预留了后续写JS的属性等。
+（该任接触到的HTML5新标签：1.<hidden>  2.<header>  3.<nav>  4.<section>  5.<article>  6.<figure>  7.<thead><tbody><tfoot>  8.<footer>  9.<caption>  10.<aside> ；属性：1.<label for="male">Male</label>  2.<button type="sumbit">确认提交</button>； 3.<input type="password" placeholder="这是一个文本输入框" pattern="[A-Za-z]{6,16}">  4.<form  method="post" action="save.php"> 提交方式，与后台连台）
+
+
+
+1:41 2016/3/22 完成任务二
+
+10:48 2016/3/23 完成任务三

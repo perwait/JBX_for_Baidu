@@ -1,0 +1,112 @@
+﻿/*
+CSS规范
+1.位置属性(position, top, right, z-index, display, float等)
+2.大小(width, height, padding, margin)
+3.文字系列(font, line-height, letter-spacing, color- text-align等)
+4.背景(background, border等)
+5.其他(animation, transition等)
+*/
+body {
+	margin: 0;
+	background-color: #dedede;
+}
+.header, .content, .footer {
+	overflow: hidden;
+}
+.container {
+	width: 1280px;
+	margin: 0 auto;
+	font-size: 14px;
+	content
+}
+.box {
+	margin: 0 20px;
+}
+.header {
+	background-color: #333333;
+}
+h1 {
+	margin: 0;
+}
+.nav {}
+.nav  li {
+	float: left;
+	margin-left: 1.2em;
+}
+.nav  a {
+	text-decoration: none;
+	color: #ffffff;
+}
+.nav .active a, .nav  a:hover {
+	color: #9e9e9e;
+}
+
+.article {
+	padding: 22px;
+	margin-top:20px;
+	background-color: #ffffff;
+	border-top: 2px solid #cdcdcd;
+	border-left: 2px solid #cdcdcd;
+	border-right: 2px solid #848484;
+	border-bottom: 2px solid #848484;
+}
+.dl-group {}
+.dl-group dd {
+	display: table;
+	padding: 10px;
+	margin-top: 20px;
+	font-size: 0;
+	border: 1px solid #ccc;
+}
+.dl-group img {
+	width: 100px;
+	height: 80px;
+}
+
+.dl-group p {
+	font-size: 14px;
+	text-align: center;
+	text-indent: 0;
+}
+
+.table thead {
+	background-color: #333333;
+	color: #ffffff;
+}
+.table tfoot {
+	background-color: #cccccc;
+}
+.table td, .table th{
+	padding: 5px;
+	text-align: left;
+	vertical-align: top;  
+	border: 1px solid #cccccc;
+}
+
+.table-form td {
+	padding: 15px;
+	vertical-align: top
+}
+.table-form td:first-child {
+	text-align: right;
+}
+.table-form .submit {
+	width: 100%;
+	padding: .5em 0;
+	color: #ffffff;
+	border: none;
+	border-radius: .5em;
+	background-color: #3355d0;
+}
+.td-un-mp  td{
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.footer {
+	margin-top: 20px;
+	text-align: center;
+	background-color: #000000;
+	color: #ffffff;
+}
