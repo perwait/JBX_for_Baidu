@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding:0;
+}
+html,body{
+    height:100%;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    height:100%;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+}
+.red{
+    border:1px solid red;
+}
+.blue{
+    border:1px solid blue;
+}
+.w150{
+    width:150px;
+    padding:20px;
+}
+#div1{
+    height:120px;
+}
+#div2{
+    height:100px;
+}
+#div3{
+    height:40px;
+}
+#div4{
+    height:200px;
+}
+@media (max-width:640px){
+    .content{
+        align-items: flex-start;
+    }
+    #div4{
+        order:-1;
+    }
+}
