@@ -66,6 +66,7 @@ header time{
     width:641px;
     height:301px;
     position: relative;
+    float:left;
 }
 .banner-pic:before,.banner-pic:after{
     display:block;
@@ -93,9 +94,10 @@ header time{
     border-top: 2px solid #cc8091;
     width:203px;
     font-family:"Microsoft YaHei",sans-serif; 
-    position: absolute;
+   /* position: absolute;
     right:0;
-    top:34px;
+    top:34px;*/
+    float:right;
 }
 .banner-des>h2{
     font-size: 24px;
