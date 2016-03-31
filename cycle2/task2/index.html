@@ -32,7 +32,7 @@ var aqiData = [
 		return b[1]-a[1];
 	})
 	for(var n in _arr){
-		document.getElementById("aqi-list").innerHTML+="<li>第"+(n+1)+"名："+_arr[n]+"</li>";
+		document.getElementById("aqi-list").innerHTML+="<li>第"+(parseInt(n)+Number(1))+"名："+_arr[n]+"</li>";
 	}
 })();
 
