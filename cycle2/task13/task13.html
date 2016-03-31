@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+    <label>请输入北京今天空气质量：
+        <input id="aqi-input" type="text">
+    </label>
+    <button id="button">确认填写</button>
+    <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+<script type="text/javascript">
+
+(function() {
+  /*    
+  在注释下方写下代码
+  给按钮button绑定一个点击事件
+  在事件处理函数中
+  获取aqi-input输入的值，并显示在aqi-display中
+  */
+ // 绑定事件有3种方法
+    // 1.在DOM元素中直接绑定: onXXX=JavascriptCode | function()
+    // 2.在js中绑定: element.onXXX =function() {// 事件处理代码}
+    // 3. 绑定事件监听函数:addEventListener(element, handle, useCapture)和elementObject.attachEvent(eventName,handle);
+    // addEventListener()是标准的绑定事件监听函数的方法，是W3C所支持的，Chrome、FireFox、Opera、Safari、IE9.0及其以上版本都支持该函数；但是，IE8.0及其以下版本不支持该方法，它使用attachEvent()来绑定事件监听函数。所以，这种绑定事件的方法必须要处理浏览器兼容问题。
+    function addEvent(obj,type,handle){
+        try{
+            // Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
+            obj.addEventListener(type,handle,false);
+        }catch (e) {
+            try{
+                 // IE8.0以及以下版本
+                obj.attachEvent("on" + type,handle);
+            }catch(e){
+                obj["on" + type] = handle;
+            }
+        }
+    }
+    function disinput(){
+        document.getElementById("aqi-display").innerHTML = document.getElementById("aqi-input").value;
+    }
+    addEvent(document.getElementById("button"),"click",disinput);
+
+})();
+
+</script>
+</body>
+</html>
