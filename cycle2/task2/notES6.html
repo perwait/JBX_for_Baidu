@@ -25,13 +25,15 @@ var aqiData = [
 ];
 
 (function () {
-	var _arr=aqiData.filter(function(arr){
-		return arr[1]>=60;
-	}).sort(function(a,b){
+	var _arr=[];
+	for(var i=0;i<aqiData.length;i++){
+		if(aqiData[i][1]>=60)_arr.push(aqiData[i])
+	};
+	_arr.sort(function(a,b){
 		return b[1]-a[1];
-	})
-	for(var n in _arr){
-		document.getElementById("aqi-list").innerHTML+="<li>第"+(parseInt(n)+Number(1))+"名："+_arr[n]+"</li>";
+	});
+	for(var i=0;i<_arr.length;i++){
+		document.getElementById("aqi-list").innerHTML+="<li>第"+(parseInt(i)+Number(1))+"名："+_arr[i]+"</li>";
 	}
 })();
 </script>
