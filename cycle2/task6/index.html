@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<title>task18</title>
+<style>
+	li { display: inline-block; padding: 10px; margin-right: 5px; color: #ffffff; background-color: #ff0000;}
+</style>
+</head>
+<body>
+<input id="text" type="text" />
+<button id="leftIn">左侧入</button>
+<button id="rightIn">右侧入</button>
+<button id="leftDel">左删除</button>
+<button id="rightDel">右删除 </button>
+<ul id="list">
+	
+</ul>
+<script>
+	var _txt= document.getElementById('text');
+	var _leftIn = document.getElementById('leftIn');
+	var _rightIn = document.getElementById('rightIn');
+	var _leftDel = document.getElementById('leftDel');
+	var _rightDel = document.getElementById('rightDel');
+	var _list = document.getElementById('list');
+	var _arr = [];
+	function listView() {
+		_list.innerHTML="";
+		for(var i=0;i<_arr.length;i++) {
+			_list.innerHTML+="<li>"+_arr[i]+"</li>";
+		}
+	}
+	_leftIn.onclick=function() {
+		_arr.splice(0,0,_txt.value);
+		listView()
+	}
+	_rightIn.onclick=function() {
+		_arr.push(_txt.value);
+		listView()
+	}
+	_leftDel.onclick=function() {
+		_arr.shift();
+		listView()
+	}
+	_rightDel.onclick=function() {
+		_arr.pop();
+		listView()
+	}
+
+</script>
+</body>
+</html>
