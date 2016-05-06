@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css" media="screen">
+            #container div{
+                width: 20px;
+                background-color: orange;
+                float: left;
+                margin-left: 10px;
+            }
+            #container{
+                margin-top: 20px;
+                display: flex;
+                align-items: flex-end;
+            }
+        </style>
+    </head>
+    <body>
+    <input type="text" name="" value="" placeholder="" id="inputNum">
+    <button type="button" id="lpushBtn" >左侧入</button>
+    <button type="button" id="rpushBtn">右侧入</button>
+    <button type="button" id="lpopBtn">左侧出</button>
+    <button type="button" id="rpopBtn">右侧出</button>
+    <button type="button" id="sort">排序</button>
+    <div id="container">
+        
+    </div>
+    <script type="text/javascript">
+        //事件处理
+        function addEvent(element,event,listener){
+            if (element.addEventListener) {
+                element.addEventListener(event, listener);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + event,listener);
+            } else{
+                element["on" + event] = listener;
+            }
+        }
+        var queue = {
+            container : document.getElementById("container"),
+            inputNum : document.getElementById("inputNum"),
+            lpushBtn: document.getElementById("lpushBtn"),
+            rpushBtn: document.getElementById("rpushBtn"),
+            lpopBtn: document.getElementById("lpopBtn"),
+            rpopBtn: document.getElementById("rpopBtn"),
+            sortBtn: document.getElementById("sort"),
+            numShow: [],
+            snapshots: [],//保存排序快照
+            leftPush: function(num){
+                this.numShow.unshift(num);
+                this.paint();
+            },
+            rightPush: function(num){
+                this.numShow.push(num);
+                this.paint();
+            },
+            leftPop: function(){
+                if (this.numShow.length != 0) {
+                    alert(this.numShow.shift());
+                    this.paint();
+                } else{
+                    alert("The queue is empty!");
+                }
+            },
+            rightPop:function(){
+                if (this.numShow.length != 0) {
+                    alert(this.numShow.pop());
+                    this.paint();
+                } else{
+                    alert("The queue is empty!");
+                }
+            },
+            paint: function(arr){
+                var array = arr || this.numShow;
+                var str = "";
+                for (var i = 0; i < array.length; i++) {
+                    str += ("<div style='height:"+ array[i] + "px;'></div>");
+                }
+                this.container.innerHTML = str;
+                this.addDel();
+            },
+            deleteNum : function(id){
+                this.numShow.splice(id,1);
+                this.paint();
+            },
+            addDel: function(){
+                var self = this;
+                for (var i = 0; i < self.container.children.length; i++) {
+                    addEvent(self.container.children[i],"click",function(cur){
+                        return function(){
+                            self.deleteNum(cur);
+                        }
+                    }(i));
+                }
+            },
+            bubbleSort:function(arr){
+                this.snapshots = [];
+                if (arr.length<1) {
+                    return arr;
+                }
+                var temp;
+                for (var i = 0; i < arr.length; i++) {
+                    for (var j = 0; j < arr.length - i - 1; j++) {
+                        if (arr[j]>arr[j+1]) {
+                            temp = arr[j+1];
+                            arr[j+1] = arr[j];
+                            arr[j] = temp;
+                            var s = [];
+                           for(var k = 0; k< arr.length;k++){
+                                s[k] = arr[k];
+                           }
+                            this.snapshots.push(s);
+                            for (var x = 0; x < this.snapshots.length; x++) {
+                                console.log(this.snapshots[x]);
+                            }
+                        }
+                    }
+                }
+                return arr;
+            },
+            verificate:function(){
+                var myReg = /^[0-9]+$/;
+                var inputVal = this.inputNum.value;
+                if (!myReg.test(inputVal)) {
+                    alert("请输入一个整数");
+                    this.inputNum.value = "";
+                    return false;
+                }
+                if (inputVal>100 || inputVal<10) {
+                    alert("请输入10-100间整数");
+                    this.inputNum.value = "";
+                    return false;
+                }
+                if (this.container.children.length > 60) {
+                    alert("队列元素数量超出60，无法加入！");
+                    this.inputNum.value = "";
+                    return false;
+                }
+                return true;
+            },
+            bindEvent:function(){
+                var self = this;
+                addEvent(self.lpushBtn,"click",function(){
+                    if (self.verificate()) {
+                        self.leftPush(self.inputNum.value);
+                    }
+                });
+                addEvent(self.rpushBtn,"click",function(){
+                    if (self.verificate()) {
+                        self.rightPush(self.inputNum.value);
+                    }
+                });
+                addEvent(self.lpopBtn,"click",function(){
+                    self.leftPop();
+                });
+                addEvent(self.rpopBtn,"click",function(){
+                    self.rightPop();
+                });
+                addEvent(self.sortBtn,"click",function(){
+                    if (self.numShow.length == 0) {
+                        return alert("队列为空！");
+                    }
+                    self.numShow = self.bubbleSort(self.numShow);
+                    var timer = setInterval(render, 200);
+                    function render(){
+                        var snapshot = self.snapshots.shift() || [];
+                        console.log(snapshot);
+                        if (snapshot.length != 0) {
+                            self.paint(snapshot);
+                        } else {
+                            clearInterval(timer);
+                            return;
+                        }
+                    }
+                });
+            },
+            init:function(){
+                this.bindEvent();
+            }
+        }
+        queue.init();
+    </script>
+    </body>
+</html>
