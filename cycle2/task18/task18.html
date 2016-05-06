@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css" media="screen">
+            #container div{
+                min-width: 50px;
+                height: 50px;
+                background-color: orange;
+                float: left;
+                text-align: center;
+                margin-left: 20px;
+                line-height: 50px;
+                font-size: 18px;
+            }
+            #container{
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+    <input type="text" name="" value="" placeholder="" id="inputNum">
+    <button type="button" id="lpushBtn">左侧入</button>
+    <button type="button" id="rpushBtn">右侧入</button>
+    <button type="button" id="lpopBtn">左侧出</button>
+    <button type="button" id="rpopBtn">右侧出</button>
+    <div id="container">
+        
+    </div>
+    <script type="text/javascript">
+        //事件处理
+        function addEvent(element,event,listener){
+            if (element.addEventListener) {
+                element.addEventListener(event, listener);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + event,listener);
+            } else{
+                element["on" + event] = listener;
+            }
+        }
+        var queue = {
+            container : document.getElementById("container"),
+            inputNum : document.getElementById("inputNum"),
+            lpushBtn: document.getElementById("lpushBtn"),
+            rpushBtn: document.getElementById("rpushBtn"),
+            lpopBtn: document.getElementById("lpopBtn"),
+            rpopBtn: document.getElementById("rpopBtn"),
+            numShow: [],
+            leftPush: function(num){
+                this.numShow.unshift(num);
+                this.paint();
+            },
+            rightPush: function(num){
+                this.numShow.push(num);
+                this.paint();
+            },
+            leftPop: function(){
+                if (this.numShow.length != 0) {
+                    alert(this.numShow.shift());
+                    this.paint();
+                } else{
+                    alert("The queue is empty!");
+                }
+            },
+            rightPop:function(){
+                if (this.numShow.length != 0) {
+                    alert(this.numShow.pop());
+                    this.paint();
+                } else{
+                    alert("The queue is empty!");
+                }
+            },
+            paint: function(){
+                var str = "";
+                for (var i = 0; i < this.numShow.length; i++) {
+                    str += ("<div>" + this.numShow[i] + "</div>");
+                }
+                this.container.innerHTML = str;
+                this.addDel();
+            },
+            deleteNum : function(id){
+                this.numShow.splice(id,1);
+                this.paint();
+            },
+            addDel: function(){
+                var self = this;
+                for (var i = 0; i < self.container.children.length; i++) {
+                    addEvent(self.container.children[i],"click",function(cur){
+                        return function(){
+                            self.deleteNum(cur);
+                        }
+                    }(i));
+                }
+            },
+            verificate:function(){
+                var myReg = /^[0-9]+$/;
+                if (!myReg.test(this.inputNum.value)) {
+                    alert("请输入一个整数");
+                    this.inputNum.value = "";
+                    return false;
+                }
+                return true;
+            },
+            bindEvent:function(){
+                var self = this;
+                addEvent(self.lpushBtn,"click",function(){
+                    if (self.verificate()) {
+                        self.leftPush(self.inputNum.value);
+                    }
+                });
+                addEvent(self.rpushBtn,"click",function(){
+                    if (self.verificate()) {
+                        self.rightPush(self.inputNum.value);
+                    }
+                });
+                addEvent(self.lpopBtn,"click",function(){
+                    self.leftPop();
+                });
+                addEvent(self.rpopBtn,"click",function(){
+                    self.rightPop();
+                });
+            },
+            init:function(){
+                this.bindEvent();
+            }
+        }
+        queue.init();
+    </script>
+    </body>
+</html>
