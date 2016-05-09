@@ -107,9 +107,10 @@
                             arr[j+1] = arr[j];
                             arr[j] = temp;
                             var s = [];
-                           for(var k = 0; k< arr.length;k++){
-                                s[k] = arr[k];
-                           }
+                           // for(var k = 0; k< arr.length;k++){
+                           //      s[k] = arr[k];
+                           // }
+                           s = arr.slice(0);
                             this.snapshots.push(s);
                             for (var x = 0; x < this.snapshots.length; x++) {
                                 console.log(this.snapshots[x]);
